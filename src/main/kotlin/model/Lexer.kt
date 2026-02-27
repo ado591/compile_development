@@ -2,7 +2,7 @@ package model
 
 
 class Lexer {
-    private lateinit var input: String;
+    private var input: String;
     private val length: Int;
     private var position: Int;
 
@@ -16,7 +16,7 @@ class Lexer {
         val result: MutableList<Token> = mutableListOf();
 
         while (position < length) {
-            var current = peek(input);
+            val current = peek(input);
 
             if (current.isWhitespace()) {
                 next()
@@ -37,11 +37,11 @@ class Lexer {
 
     private fun tokenizeNumber(result: MutableList<Token>) {
 
-        var start = position;
+        val start = position;
 
         while (peek(input).isLetterOrDigit()) next()
 
-        var number = input.substring(start, position)
+        val number = input.substring(start, position)
 
         addToken(result, TokenType.NUMBER, number.toString(), start)
 
@@ -63,11 +63,11 @@ class Lexer {
     }
 
     private fun tokenizeWord(result: MutableList<Token>) {
-        var start = position;
+        val start = position;
 
         while (peek(input).isLetterOrDigit()) next()
 
-        var word = input.substring(start, position + 1)
+        val word = input.substring(start, position + 1)
 
 
         when(word) {
