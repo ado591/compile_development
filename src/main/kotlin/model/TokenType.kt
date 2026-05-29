@@ -13,6 +13,10 @@ enum class TokenType {
     IF,
     ELSE,
     WHILE,
+    TRUE,
+    FALSE,
+    FUN,
+    RETURN,
 
     //Operators
     PLUS,
@@ -35,7 +39,11 @@ enum class TokenType {
     RPAREN,
     LBRACE,
     RBRACE,
+    LBRACKET,
+    RBRACKET,
     SEMICOLON,
+    COMMA,
+    COLON,
 
     //конец файла
     EOF
